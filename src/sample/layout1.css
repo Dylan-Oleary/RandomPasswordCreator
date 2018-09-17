@@ -8,11 +8,24 @@
     accent-color : #03A9F4;
     primary-text-color : #212121;
     secondary-text-color : #757575;
-    divider-color : #BDBDBD;
+    divider-color : white;
+    font-family: 'Ruslan Display', cursive;
 }
 
 .root {
-    -fx-background-color: default-primary-color;
+    -fx-background-image: url("RoxyTheme.png");
+    -fx-background-position: right;
+    -fx-background-size: cover;
 }
+
+.label{
+    -fx-opacity: 1;
+}
+
+
+
+
+
+
 
 
