@@ -10,11 +10,12 @@ public class PasswordGenerator {
     private Random random;
     private boolean duplicateDecision;
 
-    public PasswordGenerator(int passwordLength, boolean specialCharacters, boolean capitalLetters, boolean duplicateDecision){
+    public PasswordGenerator(int passwordLength, boolean specialCharacters, boolean capitalLetters, boolean duplicateDecision,
+                            boolean lowerCase, boolean numbers){
         this.password = "";
         this.characters = "";
         setPasswordLength(passwordLength);
-        setCharacters(specialCharacters, capitalLetters);
+        setCharacters(specialCharacters, capitalLetters, lowerCase, numbers);
         this.duplicateDecision = duplicateDecision;
         this.random = new Random();
     }
@@ -39,19 +40,41 @@ public class PasswordGenerator {
 
     //This method determines whether or not the password will contain special characters
 
-    public void setCharacters(boolean specialCharacters, boolean capitalLetters){
+    public void setCharacters(boolean specialCharacters, boolean capitalLetters, boolean lowerCase, boolean numbers){
         // We first decide whether we want special characters in the password
 
-        if(specialCharacters == true){
-            characters = "abcdefghijklmnopqrstuvwxyz123456789!@#$%^&*";
-        }else{
-            characters = "abcdefghijklmnopqrstuvwxyz123456789";
+        if(lowerCase == true){
+            if(specialCharacters == true){
+                characters = "abcdefghijklmnopqrstuvwxyz!@#$%^&*-+=";
+            }else{
+                characters = "abcdefghijklmnopqrstuvwxyz";
+            }
+
+            //Next, we decide if we want capital letters in the password
+
+            if(capitalLetters == true){
+                characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + characters;
+            }
+
+            //Deciding if the character pool will contain numbers
+
+            if(numbers == true){
+                characters = characters + "123456789";
+            }
         }
 
-        //Next, we decide if we want capital letters in the password
+        if(lowerCase == false){
+            if(specialCharacters == true){
+                characters = "!@#$%^&*-+=";
+            }
 
-        if(capitalLetters == true){
-            characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + characters;
+            if(capitalLetters == true){
+                characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + characters;
+            }
+
+            if(numbers == true){
+                characters = characters + "123456789";
+            }
         }
     }
 

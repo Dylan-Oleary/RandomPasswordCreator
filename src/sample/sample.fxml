@@ -5,9 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -24,18 +21,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="300.0" stylesheets="@layout1.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-      <HBox layoutX="15.0" layoutY="128.0" prefHeight="214.0" prefWidth="270.0" style="-fx-background-color: #e238d3; -fx-opacity: 0.8; -fx-border-radius: 20px; -fx-border-style: solid; -fx-border-width: 5px; -fx-background-radius: 25px; -fx-border-color: #5f366c;" />
-      <HBox layoutX="56.0" layoutY="38.0" prefHeight="59.0" prefWidth="191.0" style="-fx-background-color: #e238d3; -fx-opacity: 0.8; -fx-border-radius: 20px; -fx-border-style: solid; -fx-border-width: 5px; -fx-background-radius: 25px; -fx-border-color: #5f366c;" />
-        <MenuBar prefHeight="29.0" prefWidth="300.0">
-            <menus>
-                <Menu mnemonicParsing="false" text="View">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Change Theme" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <GridPane layoutX="24.0" layoutY="138.0" prefHeight="184.0" prefWidth="264.0" style="-fx-opacity: 1;" styleClass="gridPane" stylesheets="@layout1.css">
+      <HBox layoutX="4.0" layoutY="107.0" prefHeight="264.0" prefWidth="293.0" style="-fx-background-color: #e238d3; -fx-opacity: 0.8; -fx-border-radius: 20px; -fx-border-style: solid; -fx-border-width: 5px; -fx-background-radius: 25px; -fx-border-color: #5f366c;" />
+      <HBox layoutX="55.0" layoutY="15.0" prefHeight="59.0" prefWidth="191.0" style="-fx-background-color: #e238d3; -fx-opacity: 0.8; -fx-border-radius: 20px; -fx-border-style: solid; -fx-border-width: 5px; -fx-background-radius: 25px; -fx-border-color: #5f366c;" />
+        <GridPane layoutX="15.0" layoutY="120.0" prefHeight="246.0" prefWidth="277.0" style="-fx-opacity: 1;" styleClass="gridPane" stylesheets="@layout1.css">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="136.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="61.0" />
@@ -46,9 +34,11 @@
                 <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-            <RadioButton fx:id="duplicateNo" mnemonicParsing="false" styleClass="radioButtons" text="No" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <RadioButton fx:id="duplicateNo" mnemonicParsing="false" styleClass="radioButtons" text="No" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <toggleGroup>
                   <ToggleGroup fx:id="duplicateChoice" />
                </toggleGroup>
@@ -56,29 +46,31 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font size="14.0" />
+                  <Font name="Courier New Bold" size="14.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="duplicateYes" mnemonicParsing="false" selected="true" styleClass="radioButtons" text="Yes" toggleGroup="$duplicateChoice" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <RadioButton fx:id="duplicateYes" mnemonicParsing="false" selected="true" styleClass="radioButtons" text="Yes" toggleGroup="$duplicateChoice" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font size="14.0" />
-               </font></RadioButton>
-            <Label text="Exclude duplicate&#10;characters?&#10;" textFill="#f0ff69" GridPane.rowIndex="3">
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+            </RadioButton>
+            <Label text="Exclude duplicate&#10;characters?&#10;" GridPane.rowIndex="5">
                <font>
-                  <Font name="Charter Bold" size="14.0" />
-               </font></Label>
+                  <Font name="Courier New Bold" size="13.0" />
+               </font>
+            </Label>
             <RadioButton fx:id="capitalNo" mnemonicParsing="false" styleClass="radioButtons" text="No" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <toggleGroup>
-                  <ToggleGroup fx:id="capitalChoice" />
+                    <ToggleGroup fx:id="capitalChoice" />
                </toggleGroup>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font size="14.0" />
+                  <Font name="Courier New Bold" size="14.0" />
                </font>
             </RadioButton>
             <RadioButton fx:id="capitalYes" mnemonicParsing="false" selected="true" styleClass="radioButtons" text="Yes" toggleGroup="$capitalChoice" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -86,19 +78,22 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font size="14.0" />
-               </font></RadioButton>
-            <Label text="Include capital&#10;letters?&#10;" textFill="#f0ff69" GridPane.rowIndex="2">
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+            </RadioButton>
+            <Label prefHeight="34.0" prefWidth="131.0" styleClass="gridPane" text="Include capital&#10;letters?&#10;" GridPane.rowIndex="2">
                <font>
-                  <Font name="Charter Bold" size="14.0" />
-               </font></Label>
-                <Label prefHeight="34.0" prefWidth="101.0" text="Include special&#10;characters?" textFill="#f0ff69" GridPane.rowIndex="1">
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+            </Label>
+                <Label prefHeight="34.0" prefWidth="130.0" text="Include special&#10;characters?" GridPane.rowIndex="1">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <font>
-                  <Font name="Charter Bold" size="14.0" />
-               </font></Label>
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+            </Label>
                 <RadioButton fx:id="specialYes" mnemonicParsing="false" selected="true" styleClass="radioButtons" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <toggleGroup>
                         <ToggleGroup fx:id="characterChoice" />
@@ -107,47 +102,102 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></RadioButton>
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+            </RadioButton>
                 <RadioButton fx:id="specialNo" mnemonicParsing="false" styleClass="radioButtons" text="No" toggleGroup="$characterChoice" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font size="14.0" />
-               </font></RadioButton>
-                <Label prefHeight="52.0" prefWidth="131.0" text="Choose &#10;password length" textFill="#f0ff69">
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+            </RadioButton>
+                <Label prefHeight="38.0" prefWidth="136.0" text="Choose &#10;password length">
                <font>
-                  <Font name="Charter Bold" size="14.0" />
-               </font></Label>
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+            </Label>
                 <ChoiceBox id="passwordLengthChoice" fx:id="lengthChoiceBox" prefWidth="150.0" GridPane.columnIndex="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <effect>
                   <DropShadow radius="18.41" width="54.64" />
-               </effect></ChoiceBox>
+               </effect>
+            </ChoiceBox>
+            <Label prefHeight="34.0" prefWidth="117.0" text="Incude lower &#10;case letters?" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="lowerCaseChoiceYes" mnemonicParsing="false" selected="true" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="lowerCaseChoice" />
+               </toggleGroup>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
+            <RadioButton fx:id="lowerCaseChoiceNo" mnemonicParsing="false" text="No" toggleGroup="$lowerCaseChoice" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
+            <Label text="Include numbers?" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="numberChoiceYes" mnemonicParsing="false" selected="true" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="numberChoice" />
+               </toggleGroup>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
+            <RadioButton fx:id="numberChoiceNo" mnemonicParsing="false" text="No" toggleGroup="$numberChoice" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
             </children>
         </GridPane>
-        <Button fx:id="generatePassword" layoutX="111.0" layoutY="349.0" mnemonicParsing="false" onAction="#generatePasswordButtonPushed" text="Generate!">
+        <Button fx:id="generatePassword" layoutX="111.0" layoutY="380.0" mnemonicParsing="false" onAction="#generatePasswordButtonPushed" text="Generate!">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-        <TextField fx:id="showPassword" alignment="CENTER" layoutX="50.0" layoutY="400.0" prefHeight="27.0" prefWidth="200.0" promptText="Enjoy!">
+        <TextField fx:id="showPassword" alignment="CENTER" layoutX="50.0" layoutY="419.0" prefHeight="27.0" prefWidth="200.0" promptText="Enjoy!">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></TextField>
-      <Button fx:id="copyPassword" layoutX="36.0" layoutY="446.0" mnemonicParsing="false" onAction="#copyPasswordButtonPushed" text="Copy Password">
+         </cursor>
+         <font>
+            <Font name="Courier New Bold" size="14.0" />
+         </font></TextField>
+      <Button fx:id="copyPassword" layoutX="25.0" layoutY="460.0" mnemonicParsing="false" onAction="#copyPasswordButtonPushed" text="Copy Password">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="clearPassword" layoutX="172.0" layoutY="446.0" mnemonicParsing="false" onAction="#clearPasswordButtonPushed" text="Clear Password">
+      <Button fx:id="clearPassword" layoutX="170.0" layoutY="460.0" mnemonicParsing="false" onAction="#clearPasswordButtonPushed" text="Clear Password">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-        <Label id="label" fx:id="titleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="67.0" layoutY="44.0" prefHeight="47.0" prefWidth="170.0" stylesheets="@layout1.css" text="RandoPass" textAlignment="RIGHT" textFill="#0d0d0d">
+        <Label id="label" fx:id="titleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="66.0" layoutY="21.0" prefHeight="47.0" prefWidth="170.0" stylesheets="@layout1.css" text="RandoPass" textAlignment="RIGHT" textFill="#0d0d0d" underline="true">
             <font>
-                <Font name="Charter Bold" size="26.0" />
+                <Font name="Charter Italic" size="26.0" />
             </font>
          <effect>
             <Lighting>

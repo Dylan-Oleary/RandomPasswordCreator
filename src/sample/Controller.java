@@ -3,9 +3,8 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import logic.PasswordGenerator;
 
@@ -33,6 +32,18 @@ public class Controller implements Initializable {
     private RadioButton capitalYes;
     @FXML
     private RadioButton capitalNo;
+
+    //Lower case letters button
+    @FXML
+    private RadioButton lowerCaseChoiceYes;
+    @FXML
+    private RadioButton lowerCaseChoiceNo;
+
+    //Number choice button
+    @FXML
+    private RadioButton numberChoiceYes;
+    @FXML
+    private RadioButton numberChoiceNo;
 
     //Duplicate letters button
     @FXML
@@ -88,6 +99,28 @@ public class Controller implements Initializable {
             capitalLettersDecision = false;
         }
 
+        /** This block determines whether or not the password will contain lowercase letters */
+        boolean lowerCaseDecision = true;
+
+        if(lowerCaseChoiceYes.isSelected()){
+            lowerCaseDecision = true;
+        }
+
+        if(lowerCaseChoiceNo.isSelected()){
+            lowerCaseDecision = false;
+        }
+
+        /** This block determines whether or not the password will contain numbers */
+        boolean numberDecision = true;
+
+        if(numberChoiceYes.isSelected()){
+            numberDecision = true;
+        }
+
+        if(numberChoiceNo.isSelected()){
+            numberDecision = false;
+        }
+
         /** This block determines whether the password will be built to exclude duplicate characters */
         boolean duplicateDecision = true;
 
@@ -99,11 +132,22 @@ public class Controller implements Initializable {
             duplicateDecision = true;
         }
 
-        /** The password is built */
-        PasswordGenerator password = new PasswordGenerator(passwordLengthArgument, specialCharactersDecision, capitalLettersDecision, duplicateDecision);
-        password.buildPassword();
 
-        showPassword.setText(password.getPassword());
+        /** The password is built */
+        try{
+            PasswordGenerator password = new PasswordGenerator(passwordLengthArgument, specialCharactersDecision, capitalLettersDecision,
+                    duplicateDecision, lowerCaseDecision, numberDecision);
+            password.buildPassword();
+
+            showPassword.setText(password.getPassword());
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setTitle("Error!");
+            alert.setContentText("You can't make a password without any characters! :(");
+            alert.showAndWait();
+        }
+
     }
 
     /** Copies the password to the system clipboard */
